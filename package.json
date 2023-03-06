@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/ByteBuddies/ByteBuddies#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "pg": "^8.9.0",
     "react": "^18.0.1",
     "react-dom": "^18.0.1",
     "react-redux": "^7.2.2",
