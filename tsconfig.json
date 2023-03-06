@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "server/dist",
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "declaration": true
+  },
+  "include": [
+    "server/src/**/*.ts", "server/src/**/*.json"
+  ],
+  "exclude": [
+    "server/src/**/*.spec.ts",
+    "client",
+    "node_modules"
+  ]
+}
