@@ -6,10 +6,10 @@ console.log(connectionString)
 const pool = new Pool({
     connectionString
 });
-
-export default {
-    query: (text:string, params:any[], callback:(...args:any[])=>void) => {
-      console.log('executed query', text);
-      return pool.query(text, params, callback);
-    }
+const query = (text:string, params:any[], callback?:(...args:any[])=>void) => {
+  console.log('executed query', text);
+  return pool.query(text, params, callback);
 }
+
+
+export default query
