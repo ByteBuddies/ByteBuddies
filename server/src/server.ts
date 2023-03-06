@@ -2,8 +2,10 @@ import express from "express";
 const app = express()
 const PORT:number = 3000
 
-app.get('/', (req,res)=> {
-  res.send("hello")
+app.use(express.json())
+
+app.get('/api', (req,res)=> {
+  res.json("hello")
 })
 
 app.listen(PORT, ()=> [
