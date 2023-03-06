@@ -28,8 +28,10 @@ module.exports = {
     ]
   },
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'client/public'),
+    static: path.join(__dirname, 'client/public'),
+    port: 8080,
+    hot: true,
+    historyApiFallback: true
     },
     proxy: {
       // Added back /api here to ensure that only requests to /api are sent to back end. All front-end requests must be handled by react routers
@@ -39,7 +41,7 @@ module.exports = {
     port: 7070,
     // This is a nevessary setting to ensure new front-end requests go to react routers
     historyApiFallback: true
-  },
+  // },
   },
   plugins: [new HtmlWebpackPlugin({
     template: path.resolve(__dirname, './client/index.html')
