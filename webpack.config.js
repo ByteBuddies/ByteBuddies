@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, './client/src/index.js' ),
+  entry: path.resolve(__dirname, './client/src/index.js'),
   output: {
     path: path.resolve(path.resolve(__dirname, './client/dist')),
     filename: 'bundle.js',
@@ -22,8 +22,8 @@ module.exports = {
         }
       },
       {
-        test:/\.css$/i,
-        use: ["style-loader", "css-loader" ], // loading styles in your server 
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"], // loading styles in your server 
       }
     ]
   },
@@ -31,19 +31,18 @@ module.exports = {
     static: path.join(__dirname, 'client/public'),
     port: 8080,
     hot: true,
-    historyApiFallback: true
-    },
+    historyApiFallback: true,
     proxy: {
       // Added back /api here to ensure that only requests to /api are sent to back end. All front-end requests must be handled by react routers
-      '/api':'http://localhost:3000',
+      '/api': 'http://localhost:3000',
 
-    compress: true,
-    port: 7070,
-    // This is a nevessary setting to ensure new front-end requests go to react routers
-    historyApiFallback: true
-  // },
+      compress: true,
+      port: 7070,
+      // This is a nevessary setting to ensure new front-end requests go to react routers
+      historyApiFallback: true
+    },
   },
   plugins: [new HtmlWebpackPlugin({
     template: path.resolve(__dirname, './client/index.html')
-  })]  
+  })]
 }
