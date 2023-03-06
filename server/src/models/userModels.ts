@@ -1,5 +1,5 @@
-import { Pool } from 'pg'
-import key from '../../keys'
+import { Pool } from 'pg';
+import key from '../../keys';
 const {connectionString} = key;
 
 console.log(connectionString)
