@@ -1,0 +1,25 @@
+{
+  "name": "bytebuddies",
+  "version": "1.0.0",
+  "description": "A social platform for developers to build teams",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByteBuddies/ByteBuddies.git"
+  },
+  "author": "Chris, Tim, Nancy, Alex, George",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ByteBuddies/ByteBuddies/issues"
+  },
+  "homepage": "https://github.com/ByteBuddies/ByteBuddies#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node": "^19.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
