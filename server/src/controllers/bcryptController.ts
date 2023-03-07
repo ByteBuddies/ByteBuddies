@@ -1,4 +1,4 @@
-import Exprees,{ Request, Response, NextFunction } from "express" 
+import { Request, Response, NextFunction } from "express" 
 import * as T from '../type'
 import bcrypt from 'bcrypt'
 import db from '../models/userModels' 
@@ -23,19 +23,16 @@ export default {
   },
   async login(req:Request, res:Response, next:NextFunction):Promise<any> {
     const {email, password} = req.body
-    console.log(req.body)
     if (!email || !password) {
-      console.log('failed')
       return res.status(400).json('incorrect input') 
-    }
+    } 
     try {
-      if (!req.session.authenticated) {
-
+      if (req.session.authenticated) {
+        console.log('here')
       }else {
-        // const user = await login(email, password)
-        
-        const user = {username: 'timothy', email:email}
-        req.session.authenticated = true
+        const user = await login(email, password)
+        // const user = {username: 'timothy', email:email}
+        req.session.authenticated = true;
         req.session.user = user as T.user;
         return next()
       }
@@ -49,12 +46,22 @@ export default {
     }
   },
   authenticate(req:Request, res:Response, next:NextFunction) {
-    if (!req.session || ! req.session.user) {
+    if (!req.session || !req.session.user) {
       const err:T.error = {
         message:`/controllers/bcryptController authentication error`,
         status: 400,
         log: 'server error check server log'
       }
+      return next(err)
+    }else {
+      req.session.regenerate((err)=> {
+        if (err) {
+          console.log(err)
+        }else {
+          console.log('session regenerated')
+        }
+      })
+      return next()
     }
   }
 }
