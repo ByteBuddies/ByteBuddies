@@ -7,7 +7,8 @@
     "build": "webpack",
     "start": "concurrently \"nodemon server/src/server.ts\" \"webpack serve --hot --progress --open\"",
     "startserver": "nodemon server/src/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "dev": "next dev"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/ByteBuddies/ByteBuddies#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
+    "next": "^13.2.3",
     "pg": "^8.9.0",
     "react": "^18.0.1",
     "react-dom": "^18.0.1",
