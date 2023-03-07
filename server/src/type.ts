@@ -1,11 +1,18 @@
 
+declare module 'express-session' {
+  interface SessionData {
+    user?: user,
+    authenticated?: boolean
+  }
+}
+
 export interface env {
   connectionString: string
 }
 export interface profile {
 
 }
-export interface user extends profile {
+export interface user {
   username:string
   password?:string
   email?:string

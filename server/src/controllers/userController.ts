@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import * as T from '../type'
 import db from '../models/userModels'
+import * as T from '../type'
 module.exports = {
     createUser: (req: Request, res: Response, next: NextFunction) => {
       try {
@@ -19,7 +19,7 @@ module.exports = {
     getUser: async (req: Request,res: Response, next: NextFunction):Promise<any> => {
       try {
         const {username} = req.body
-        const command:string = "SELECT b.username, p. FROM bytes b INNER JOIN profile p ON p.profile_id=b.profile_id WHERE b.username=$1"
+        const command:string = "SELECT b.username, b.email p.* FROM bytes b INNER JOIN profile p ON p.profile_id=b.profile_id WHERE b.username=$1"
         const user = await db.query(command, [username])
         res.locals.user = user
       }catch(err:any) {

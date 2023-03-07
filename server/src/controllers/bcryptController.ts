@@ -2,6 +2,7 @@ import Exprees,{ Request, Response, NextFunction } from "express"
 import * as T from '../type'
 import bcrypt from 'bcrypt'
 import db from '../models/userModels' 
+import {login} from '../service/auth'
 
 export default {
   async hashPassword(req: Request, res:Response, next:NextFunction):Promise<any> {
@@ -20,30 +21,40 @@ export default {
       return next(error);
     }
   },
-  async comparePasssword(req:Request, res:Response, next:NextFunction):Promise<any> {
-    const {username} = req.query
-    const command = "SELECT password FROM bytes where username=$1"
-    const user = await db.query(command, [username])
-    if (user?.rows == null) return next({
-        message:`/controllers/bcryptController comparePassowrd error`,
-        status: 400,
-        log: 'server error check server log'
-      })
-    try { 
-      if (await bcrypt.compare(req.body.password, user.rows[0].password)) {
-        res.locals.response = true;
-        return next()
+  async login(req:Request, res:Response, next:NextFunction):Promise<any> {
+    const {email, password} = req.body
+    console.log(req.body)
+    if (!email || !password) {
+      console.log('failed')
+      return res.status(400).json('incorrect input') 
+    }
+    try {
+      if (!req.session.authenticated) {
+
       }else {
-        res.locals.response = false;
+        // const user = await login(email, password)
+        
+        const user = {username: 'timothy', email:email}
+        req.session.authenticated = true
+        req.session.user = user as T.user;
         return next()
       }
     }catch(err) {
       const error:T.error = {
-        message:`/controllers/bcryptController comparePassowrd error ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+        message:`/controllers/bcryptController login error ${typeof err === 'object' ? JSON.stringify(err) : err}`,
         status: 400,
         log: 'server error check server log'
       }
       return next(error)
+    }
+  },
+  authenticate(req:Request, res:Response, next:NextFunction) {
+    if (!req.session || ! req.session.user) {
+      const err:T.error = {
+        message:`/controllers/bcryptController authentication error`,
+        status: 400,
+        log: 'server error check server log'
+      }
     }
   }
 }
