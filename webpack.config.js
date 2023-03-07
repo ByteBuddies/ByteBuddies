@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(path.resolve(__dirname, './client/dist')),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -17,15 +17,19 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', `@babel/preset-react`],// presets you want to use 
-          }
-        }
+            presets: ['@babel/preset-env', `@babel/preset-react`], // presets you want to use
+          },
+        },
       },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"], // loading styles in your server 
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'], // loading styles in your server
+      },
+      {
+        test: /\.png/,
+        type: 'asset/resource'
       }
-    ]
+    ],
   },
   devServer: {
     static: path.join(__dirname, 'client/public'),
@@ -35,14 +39,15 @@ module.exports = {
     proxy: {
       // Added back /api here to ensure that only requests to /api are sent to back end. All front-end requests must be handled by react routers
       '/api': 'http://localhost:3000',
-
       compress: true,
       port: 7070,
       // This is a nevessary setting to ensure new front-end requests go to react routers
-      historyApiFallback: true
+      historyApiFallback: true,
     },
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: path.resolve(__dirname, './client/index.html')
-  })]
-}
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './client/index.html'),
+    }),
+  ],
+};
