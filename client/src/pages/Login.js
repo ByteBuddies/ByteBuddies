@@ -10,7 +10,7 @@ const Login = () => {
       </div>
       <div id="login-container">
         <div id="login-group">
-          <h1>Byte Buddies</h1>
+          <h1>BYTE BUDDIES</h1>
           <form id="login-form">
             <h2>Login</h2>
             <input class="login-input" placeholder="username"></input>
