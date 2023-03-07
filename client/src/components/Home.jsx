@@ -6,8 +6,8 @@ export const Home = () => {
     return (
       <>
         <div className="home-container">
-          <Profile />
-          <Feed />
+          <Profile id="profile-window"/>
+          <Feed id="feed-window"/>
         </div>
       </>  
     );
