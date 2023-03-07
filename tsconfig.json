@@ -16,7 +16,9 @@
   ],
   "exclude": [
     "server/src/**/*.spec.ts",
-    "client",
+    "client/**/*.ts",
+    "client/**/*.js",
+    "client/**/*.jxs",
     "node_modules"
   ]
 }

@@ -4,9 +4,9 @@
   "description": "A social platform for developers to build teams",
   "main": "",
   "scripts": {
-    "build": "webpack",
+    "build": "concurrently \"webpack\" \"tsc\"",
     "start": "concurrently \"nodemon server/src/server.ts\" \"webpack serve --hot --progress --open\"",
-    "startserver": "nodemon server/src/server.ts",
+    "serve": "nodemon server/src/server.ts",
     "test": "jest"
   },
   "repository": {
