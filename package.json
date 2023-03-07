@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/ByteBuddies/ByteBuddies#readme",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
     "dotenv": "^16.0.3",
+    "jest-environment-jsdom": "^29.5.0",
     "pg": "^8.9.0",
     "react": "^18.0.1",
     "react-dom": "^18.0.1",

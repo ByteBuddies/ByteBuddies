@@ -1,6 +1,6 @@
 import React from "react";
 import { Profile } from "../components/Profile.jsx";
-import { Feed } from "../components/Feed.jsx";
+import Feed from "../components/Feed.jsx";
 
 export const Home = () => {
     return (
