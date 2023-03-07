@@ -16,8 +16,8 @@ export default function App(){
   return (
     <div>
       <Header />
-      <div>Total Likes:({likes})</div>
-      <button onClick={handleClick}>Like({likes})</button>
+      <div>Total Likes: {likes}</div>
+      <button onClick={handleClick}>Like</button>
     </div>
   );
 }
