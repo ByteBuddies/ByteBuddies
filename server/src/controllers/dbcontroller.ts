@@ -19,8 +19,8 @@ export default {
   },
   createUser: (req: Request, res: Response, next: NextFunction) => {
     try {
-      const command:string = "INSERT INTO bytes ($1 , $2, $3)"
-      const 
+      const command:string = "INSERT INTO bytes ($1, $2, $3)"
+      const {username, email, password} = 
     }catch(err:any) {
       const error:T.error = {
       message:`/controllers/dbController createUser error ${typeof err === 'object' ? JSON.stringify(err) : err}`,
