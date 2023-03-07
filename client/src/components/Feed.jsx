@@ -1,7 +1,7 @@
 import React from "react";
 import { UserCard } from "../components/UserCard.jsx";
 
-export const Feed = () => {
+export default function Feed (){
     // logic here for amount of user cards needed
     const cards = [];
 
