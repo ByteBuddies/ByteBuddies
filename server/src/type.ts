@@ -5,12 +5,13 @@ export interface env {
 export interface profile {
 
 }
-export class user implements profile {
+export interface user extends profile {
   username:string
-  private password?:string
+  password?:string
   email?:string
   id?: number
   profile_id?: number
+
 }
 
 export interface error {
