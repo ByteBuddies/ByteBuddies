@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-d
 import Login from "./pages/Login.js";
 import Main from "./pages/Main.js";
 import Signup from "./components/Signup.jsx";
+import '../styles.scss';
 
 const domNode = document.getElementById('root');
 const root = createRoot(domNode);
