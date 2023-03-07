@@ -77,17 +77,18 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 80%;
+  height: 90%;
   width: 50%;
 }
 
 #login-group {
-  border:rgb(92, 92, 92) 1px solid;
+  // border:rgb(92, 92, 92) 1px solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
   width: 100%;
+  font-family: 'Press Start 2P';
   // align-items: center;
 }
 
@@ -95,4 +96,22 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+}
+
+.login-input {
+  width: 50%;
+  font-family: 'Press Start 2P';
+}
+
+#login-button {
+  width: 51%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: 'Press Start 2P';
+}
+
+#sign-up-link {
+  font-size: x-small;
 }

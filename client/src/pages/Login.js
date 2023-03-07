@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import loginPic from '../../assets/login.png';
+import loginPic from '../../assets/logo-dark.png';
 
 const Login = () => {
   return (
@@ -13,10 +13,13 @@ const Login = () => {
           <h1>Byte Buddies</h1>
           <form id="login-form">
             <h2>Login</h2>
-            <input class="login-input"></input>
-            <input class="login-input"></input>
-            <button>Log In</button>
-            <Link to="/">Sign Up</Link>
+            <input class="login-input" placeholder="username"></input>
+            <br></br>
+            <input class="login-input" placeholder="password"></input>
+            <br></br>
+            <button id="login-button">Log In</button>
+            <br></br>
+            <Link to="/signup" id="sign-up-link">Sign Up</Link>
           </form>
         </div>
       </div>
