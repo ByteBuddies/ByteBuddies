@@ -3,4 +3,6 @@ package-lock.json
 DS_store
 .env
 dist
-./client/dist
+/client/dist
+/client/.DS_store
+/dist/bundle.js
