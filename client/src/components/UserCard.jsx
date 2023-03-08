@@ -1,6 +1,6 @@
 import React from "react";
 // delete when done with dummy data
-import Pic from '../../assets/placeholder.png';
+import shaggy from '../../assets/Characters/shaggy.png'
 
 export const UserCard = (props) => {
   return (
@@ -11,7 +11,7 @@ export const UserCard = (props) => {
         </div>
         <div className="card-body">
           <p>Username: {props.name}</p>
-          <p>Match:  {props.match}</p>
+          <p>Match: {props.match}</p>
           <p>Skills: {props.skills}</p>
         </div>
       </div>
