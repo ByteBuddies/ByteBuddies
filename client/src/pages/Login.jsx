@@ -4,7 +4,7 @@ import loginPic from '../../assets/logo-dark.png';
 
 const Login = () => {
   return (
-    <div class="flex-container">
+    <div className="flex-container">
       <div id="image-container">
         <img id="login-sidebar-image" src={loginPic}></img>
       </div>
@@ -13,9 +13,9 @@ const Login = () => {
           <h1>Byte Buddies</h1>
           <form id="login-form">
             <h2>Login</h2>
-            <input class="login-input" placeholder="username"></input>
+            <input className="login-input" placeholder="username"></input>
             <br></br>
-            <input class="login-input" placeholder="password"></input>
+            <input className="login-input" placeholder="password"></input>
             <br></br>
             <button id="login-button">Log In</button>
             <br></br>
