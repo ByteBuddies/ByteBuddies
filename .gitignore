@@ -5,4 +5,4 @@ DS_store
 dist
 /client/dist
 /client/.DS_store
-/dist/bundle.js
+./client/dist/bundle.js
