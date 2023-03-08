@@ -13,7 +13,6 @@ export const UserCard = (props) => {
                 <p>Skills: {props.skills}</p>
             </div>
         </div>
-
       </>  
     );
 }

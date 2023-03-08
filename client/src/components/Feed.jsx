@@ -7,7 +7,7 @@ export default function Feed (props){
     const cards = [];
 
     const names = ["alex", "chris", "george", "nancy", "time"];
-
+    
     for(let i = 0; i < names.length; i++){
       cards.push(<UserCard
         key={i} 
