@@ -3,25 +3,27 @@ import bcryptController from './controllers/bcryptController';
 import apiRouter from './routes/apiRoute'
 import authRouter from './routes/authRoute'
 import {error} from './type'
+
+import cors from 'cors'
 const app = express()
 const PORT:number = 3000
 
-
+app.use(cors({origin:'http://localhost:8080'}))
 app.use(express.json())
-app.use(authRouter);
 
-app.use(bcryptController.authenticate)
+app.use(authRouter);
 
 app.use('/api', apiRouter)
 
-app.use((err:any, req: Request ,res:Response,next: NextFunction)=> {
+app.use((err:error, req: Request ,res:Response,next: NextFunction)=> {
   const error: error = {
         message:`Global Express Error Handler`,
         status: 400,
         log: 'express error check the server log'
       }
+  console.log(err)
   err = Object.assign({}, error, err)
-  res.status(err.status).send(err)
+  res.status(err.status).send(err.log)
 
 })
 

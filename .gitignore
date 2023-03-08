@@ -3,3 +3,4 @@ package-lock.json
 DS_store
 .env
 dist
+./client/dist

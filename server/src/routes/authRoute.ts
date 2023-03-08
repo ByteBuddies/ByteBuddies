@@ -15,16 +15,25 @@ declare module 'express-session' {
 
 router.use(session({
   secret: 'bytebuddies',
-  cookie: {maxAge: 10000},
+  cookie: {maxAge: 6000},
+  rolling: true,
   resave: true,
   saveUninitialized: false,
 }))
 
-router.post('/login', bcryptController.login, (req,res) => {
-  return res.json("login success")
+router.post('/api/login', bcryptController.login, (req,res) => {
+  return res.redirect('http://localhost:8080/main')
 })
 
-router.post('/signup', bcryptController.hashPassword, userController.createUser, (req:Request , res:Response):any => {
+
+router.post('/api/signup', bcryptController.hashPassword, userController.createUser, (req:Request , res:Response):any => {
   return res.json('created')
+})
+
+router.use(bcryptController.authenticate)
+
+router.use((req:Request, res:Response)=>{
+
+  res.json(req.session.cookie)
 })
 export default router

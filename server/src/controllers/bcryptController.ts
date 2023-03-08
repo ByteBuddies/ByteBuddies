@@ -6,6 +6,7 @@ import {login} from '../service/auth'
 
 export default {
   async hashPassword(req: Request, res:Response, next:NextFunction):Promise<any> {
+    console.log("hash")
     const {username, password, email} = req.body
     try{
       const salt = await bcrypt.genSalt(3);
@@ -54,19 +55,15 @@ export default {
       }
       return next(err)
     }else {
-      const currentMaxAge = req.session.cookie.maxAge;
-  
-      // Set the new max age for the cookie (in milliseconds)
-      req.session.cookie.maxAge = currentMaxAge + (5 * 1000);
-
-      req.session.save((err) => {
+      req.session.regenerate((err)=> {
         if (err) {
-          console.error('Error refreshing session cookie:', err);
-          res.status(500).send('Error refreshing session cookie');
-        } else {
-          res.send('Session cookie refreshed');
+          console.log(err)
+        }else {
+          console.log('session regenerated')
         }
-      });
+      })
     }
+    console.log(req.session)
+    return next()
   }
 }
