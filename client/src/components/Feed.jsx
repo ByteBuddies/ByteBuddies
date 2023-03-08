@@ -5,8 +5,9 @@ import daph from '../../assets/Characters/daph.png'
 import velma from '../../assets/Characters/velma.png'
 import shaggy from '../../assets/Characters/shaggy.png'
 
-export default function Feed (){
+export default function Feed (props){
     // logic here for amount of user cards needed
+    const skill = props.skills;
     const cards = [];
 
     const names = ["shaggy", "velma", "fred", "daph"];

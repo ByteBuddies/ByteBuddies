@@ -1,5 +1,5 @@
 import React from 'react';
-import scoob from '../../assets/Characters/scoob.png'
+import scoob from '../../assets/Characters/scoob.png';
 
 export const Profile = () => {
   return (
@@ -9,15 +9,17 @@ export const Profile = () => {
           <div class="profile-photo-container">
             <img class="profile-photo" src={scoob}></img>
           </div>
-          <h1>scoob</h1>
+          <h1>{props.profile.username}</h1>
         </div>
         <div className="profile-body">
-          <p>Name</p>
-          <p>My Skills</p>
-          <p>Sought Skills</p>
-          <p>Current Project</p>
-          <p>LinkedIn</p>
-          <p>GitHub</p>
+          <p>
+            {props.profile.firstName} {props.profile.lastName}
+          </p>
+          <p>My Skills: {props.profile.skills}</p>
+          <p>Sought Skills: {props.profile.skillsSought}</p>
+          <p>Current Project: {props.profile.currentProject}</p>
+          <p>LinkedIn: {props.profile.linkedIn}</p>
+          <p>GitHub: {props.profile.github}</p>
         </div>
       </div>
     </>
