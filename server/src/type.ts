@@ -9,10 +9,11 @@ export interface profile {
 }
 export interface user {
   username:string
-  password?:string
-  email?:string
-  id?: number
-  profile_id?: number
+  password:string
+  email:string
+  skills_id?: number
+  skills_wanted?: number
+  currproj?: string
 
 }
 
