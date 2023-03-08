@@ -9,7 +9,6 @@ export default {
     const {username, password, email} = req.body
     try{
       const salt = await bcrypt.genSalt(3);
-      console.log(salt)
       const hashedPassword = await bcrypt.hash(password, salt);
       res.locals.newUser = {username: username, password: hashedPassword, email: email};
       return next()
@@ -55,14 +54,19 @@ export default {
       }
       return next(err)
     }else {
-      req.session.regenerate((err)=> {
+      const currentMaxAge = req.session.cookie.maxAge;
+  
+      // Set the new max age for the cookie (in milliseconds)
+      req.session.cookie.maxAge = currentMaxAge + (5 * 1000);
+
+      req.session.save((err) => {
         if (err) {
-          console.log(err)
-        }else {
-          console.log('session regenerated')
+          console.error('Error refreshing session cookie:', err);
+          res.status(500).send('Error refreshing session cookie');
+        } else {
+          res.send('Session cookie refreshed');
         }
-      })
-      return next()
+      });
     }
   }
 }
