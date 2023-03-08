@@ -1,8 +1,9 @@
 import React from "react";
 import { UserCard } from "../components/UserCard.jsx";
 
-export default function Feed (){
+export default function Feed (props){
     // logic here for amount of user cards needed
+    const skill = props.skills;
     const cards = [];
 
     const names = ["alex", "chris", "george", "nancy", "time"];
