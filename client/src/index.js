@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
-import Login from "./pages/Login.js";
+import Login from "./pages/Login.jsx";
 import Main from "./pages/Main.js";
 import '../styles.scss';
 
