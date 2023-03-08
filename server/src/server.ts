@@ -1,5 +1,6 @@
 import express,{NextFunction, Request,Response} from 'express';
 import authRouter from './routes/authRoute';
+import userRouter from './routes/userRoute';
 import { error } from './type';
 import cors from 'cors';
 
@@ -10,7 +11,7 @@ app.use(cors({ origin: 'http://localhost:8080' }));
 app.use(express.json());
 
 app.use('/auth',authRouter);
-
+app.use('/user', userRouter);
 
 app.use((err:error, req: Request ,res:Response,next: NextFunction)=> {
   const error: error = {
