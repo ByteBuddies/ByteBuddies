@@ -1,6 +1,8 @@
 node_modules
 package-lock.json
-.DS_store
+DS_store
 .env
-./server/dist
+dist
 ./client/dist
+./server/dist
+.DS_store
