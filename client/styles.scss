@@ -1,3 +1,6 @@
+// misc color variables
+$background-color: #d2c0a1;
+
 // Light mode color variables
 $primary-light: green;
 $secondary-light: 50% green;
@@ -128,16 +131,81 @@ body {
 .home-container {
   display: flex;
   flex-direction: row;
-  height: 95vh;
-  border: 2px solid black;
-  margin: 20px 20px 20px 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  border-radius: 5px;
+  background-color: $background-color;
+  color: green;
+}
+
+.home-faux-screen-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 97%;
+  width: 97%;
+  background-color: #918267;
+  border: 5px solid black;
   border-radius: 5px;
 }
 
-#profile-window {
-  width: 50%;
+.home-faux-screen-container {
+  background-color: black;
+  border: 5px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 97%;
+  width: 97%;
 }
 
-#feed-window {
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: 'Press Start 2P';
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 20%;
+  height: 95%;
+}
 
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid green;
+  height: 50%;
+}
+
+.profile-photo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // border: 2px solid red;
+  border-radius: 50%;
+  height: 20vw;
+  overflow: hidden;
+}
+
+.profile-photo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: fill;
+  }
+
+.feed-container {
+  font-family: 'Press Start 2P';
+  border: 2px solid green;
+  border-radius: 5px;
+  width: 77%;
+  height: 95%;
+  margin: 0 0 0 2%;
 }
