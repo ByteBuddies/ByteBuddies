@@ -2,7 +2,7 @@ import { Pool } from 'pg'
 import key from '../keys'
 const {connectionString} = key;
 
-console.log(connectionString)
+console.log("connection string",connectionString)
 const pool = new Pool({
     connectionString
 });

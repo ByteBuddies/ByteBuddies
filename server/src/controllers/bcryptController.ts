@@ -8,7 +8,8 @@ export default {
   async hashPassword(req: Request, res:Response, next:NextFunction):Promise<any> {
     const {username, password, email} = req.body
     try{
-      const salt = await bcrypt.genSalt();
+      const salt = await bcrypt.genSalt(3);
+      console.log(salt)
       const hashedPassword = await bcrypt.hash(password, salt);
       res.locals.newUser = {username: username, password: hashedPassword, email: email};
       return next()

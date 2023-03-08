@@ -1,6 +1,7 @@
 import session from 'express-session'
-import {Router} from 'express'
+import {Router, Request, Response} from 'express'
 import bcryptController from '../controllers/bcryptController'
+import userController from '../controllers/userController'
 import * as T from '../type'
 const router = Router()
 
@@ -23,4 +24,7 @@ router.post('/login', bcryptController.login, (req,res) => {
   return res.json("login success")
 })
 
+router.post('/signup', bcryptController.hashPassword, userController.createUser, (req:Request , res:Response):any => {
+  return res.json('created')
+})
 export default router

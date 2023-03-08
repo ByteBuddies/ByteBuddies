@@ -1,10 +1,5 @@
 
-declare module 'express-session' {
-  interface SessionData {
-    user?: user,
-    authenticated?: boolean
-  }
-}
+
 
 export interface env {
   connectionString: string
