@@ -2,15 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import loginPic from '../../assets/logo-dark.png';
 
-const Login = () => {
-
+const Login = (props) => {
   const login = async (e) => {
     e.preventDefault();
-    const obj = {}
-    for (let ele of e.target.parentNode.childNodes) {
-      if (ele.id) {
-        obj[ele.id] = ele.value
-      }
+    const obj = {
+      username: props.username,
+      password: props.password
     }
     try {
       const response = await (fetch('http://localhost:3000/api/login', {method: "POST", headers:{
@@ -19,6 +16,7 @@ const Login = () => {
       },
       body: JSON.stringify(obj)}))
       console.log(await response.json())
+      props.profileUpdate(await response.json());
     }catch(err) {
       console.log(err)
     }
@@ -34,9 +32,13 @@ const Login = () => {
           <h1>Byte Buddies</h1>
           <form id="login-form">
             <h2>Login</h2>
-            <input id='email'className="login-input" placeholder="username"></input>
+            <input id='email'className="login-input" placeholder="username" onChange={(e) => {
+              props.userNameUpdate(e.target.value);
+            }}></input>
             <br></br>
-            <input id="password"className="login-input" placeholder="password"></input>
+            <input id="password"className="login-input" placeholder="password" onChange={(e) => {
+              props.passwordUpdate(e.target.value);
+            }}></input>
             <br></br>
             <button id="login-button" onClick={login} >Log In</button>
             <br></br>
