@@ -13,7 +13,7 @@
   },
   "include": [
     "server/src/**/*.ts", "server/src/**/*.json"
-  ],
+, "server/types.ts"  ],
   "exclude": [
     "server/src/**/*.spec.ts",
     "client",

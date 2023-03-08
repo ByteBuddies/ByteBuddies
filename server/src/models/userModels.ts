@@ -1,15 +1,16 @@
 import { Pool } from 'pg'
-import key from '../../keys'
+import key from '../keys'
 const {connectionString} = key;
 
-console.log(connectionString)
+console.log("connection string",connectionString)
 const pool = new Pool({
     connectionString
 });
-
-module.exports = {
-    query: (text:string, params:any[], callback:(...args:any[])=>void) => {
-      console.log('executed query', text);
-      return pool.query(text, params, callback);
-    }
+const db = {
+  query: (text:string, params:any[], callback?:(...args:any[])=>void):any => {
+    console.log('executed query', text);
+    return pool.query(text, params, callback);
+  }
 }
+
+export default db;
