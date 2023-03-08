@@ -1,5 +1,5 @@
 import React from 'react';
-import scoob from '../../assets/Characters/bear.png'
+import scoob from '../../assets/Characters/scoob.png'
 
 export const Profile = () => {
   return (
@@ -9,7 +9,7 @@ export const Profile = () => {
           <div class="profile-photo-container">
             <img class="profile-photo" src={scoob}></img>
           </div>
-          <h1>UserName</h1>
+          <h1>scoob</h1>
         </div>
         <div className="profile-body">
           <p>Name</p>
