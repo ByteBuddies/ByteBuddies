@@ -14,7 +14,10 @@ export interface user {
   skills_id?: number
   skills_wanted?: number
   currproj?: string
-
+  first_name?: string,
+  last_name?: string,
+  linkedin?: string,
+  github?: string,
 }
 
 export interface error {
