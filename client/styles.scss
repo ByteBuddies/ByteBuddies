@@ -189,7 +189,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // border: 2px solid red;
   border-radius: 50%;
   height: 20vw;
   overflow: hidden;
@@ -202,10 +201,30 @@ body {
   }
 
 .feed-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: scroll;
   font-family: 'Press Start 2P';
   border: 2px solid green;
   border-radius: 5px;
   width: 77%;
   height: 95%;
   margin: 0 0 0 2%;
+}
+
+/* Card Styling */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 20%;
+  height: 45%;
+  border: 2px solid green;
+}
+
+.card-body {
+  text-align: left;
 }
