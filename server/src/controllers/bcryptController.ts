@@ -1,17 +1,15 @@
 import { Request, Response, NextFunction } from "express" 
 import * as T from '../type'
 import bcrypt from 'bcrypt'
-import db from '../models/userModels' 
-import {login} from '../service/auth'
+import db from '../models/userModels';
 
 export default {
   async hashPassword(req: Request, res:Response, next:NextFunction):Promise<any> {
-    console.log("hash")
-    const {username, password, email} = req.body
+    const { password } = req.body;
     try{
       const salt = await bcrypt.genSalt(3);
       const hashedPassword = await bcrypt.hash(password, salt);
-      res.locals.newUser = {username: username, password: hashedPassword, email: email};
+      res.locals.password = hashedPassword;
       return next()
     }catch(err) {
       const error:T.error = {
@@ -23,23 +21,34 @@ export default {
     }
   },
   async login(req:Request, res:Response, next:NextFunction):Promise<any> {
-    const {email, password} = req.body
-    if (!email || !password) {
-      return res.status(400).json('incorrect input') 
+    const { email, username, password } = req.body;
+    if (!email && !username|| !password) {
+      return res.status(400).json(`incorrect input`) 
     } 
     try {
       if (req.session.authenticated) {
-        console.log('here')
-      }else {
-        const user = await login(email, password)
-        // const user = {username: 'timothy', email:email}
+        return next();
+      } else {
+        let command;
+        let hashPassword;
+        if (email) {
+          command = "SELECT password FROM bytes WHERE email = $1;";
+          hashPassword = await db.query(command, [email])
+        }
+        if (username) {
+          command = "SELECT password FROM bytes WHERE username = $1;";
+          hashPassword = await db.query(command, [username]);
+        }
+        hashPassword = hashPassword.rows[0].password;
+
+        let permission = await bcrypt.compare(password, hashPassword);
+        res.locals.permission = permission;
         req.session.authenticated = true;
-        req.session.user = user as T.user;
         return next()
       }
     }catch(err) {
       const error:T.error = {
-        message:`/controllers/bcryptController login error ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+        message:`/controllers/bcryptController login error ${err}`,
         status: 400,
         log: 'server error check server log'
       }
@@ -63,7 +72,6 @@ export default {
         }
       })
     }
-    console.log(req.session)
     return next()
   }
 }
