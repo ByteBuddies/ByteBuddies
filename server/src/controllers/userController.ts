@@ -1,10 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import db from '../models/userModels'
+import {hash} from '../service/auth'
 import * as T from '../type'
 
 export default {
     createUser: async (req: Request, res: Response, next: NextFunction):Promise<any> => {
       try {
+        res.locals.newUser = await hash(req.body)
         const command:string = "INSERT INTO Bytes (username, email, password, profile_id) VALUES ($1, $2, $3, '1' )"
         const {username, email, password}:T.user = res.locals.newUser;
         const response = await db.query(command, [username, email, password]);

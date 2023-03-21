@@ -24,3 +24,18 @@ export const login = async (email:string, password:string):Promise<T.user | stri
     return Promise.reject("user not found")
   }
 }
+export const hash = async (body:T.user):Promise<T.user> => {
+  
+  const {username, password, email} = body
+  if (!username || !password || !email) {
+    return Promise.reject("incorrect input")
+  }
+
+  try{
+    const salt = await bcrypt.genSalt(3);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    return {username: username, password: hashedPassword, email: email};
+  }catch(err){
+    return err
+  }
+}

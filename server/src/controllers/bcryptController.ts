@@ -5,23 +5,6 @@ import db from '../models/userModels'
 import {login} from '../service/auth'
 
 export default {
-  async hashPassword(req: Request, res:Response, next:NextFunction):Promise<any> {
-    console.log("hash")
-    const {username, password, email} = req.body
-    try{
-      const salt = await bcrypt.genSalt(3);
-      const hashedPassword = await bcrypt.hash(password, salt);
-      res.locals.newUser = {username: username, password: hashedPassword, email: email};
-      return next()
-    }catch(err) {
-      const error:T.error = {
-        message:`/controllers/bcryptController hashPassword error ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-        status: 400,
-        log: 'server error check server log'
-      }
-      return next(error);
-    }
-  },
   async login(req:Request, res:Response, next:NextFunction):Promise<any> {
     const {email, password} = req.body
     if (!email || !password) {
