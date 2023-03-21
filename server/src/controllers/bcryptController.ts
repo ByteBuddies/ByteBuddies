@@ -32,7 +32,6 @@ export default {
         console.log('here')
       }else {
         const user = await login(email, password)
-        // const user = {username: 'timothy', email:email}
         req.session.authenticated = true;
         req.session.user = user as T.user;
         return next()
