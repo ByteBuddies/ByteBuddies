@@ -1,19 +1,16 @@
 import express,{NextFunction, Request,Response} from 'express';
-import bcryptController from './controllers/bcryptController';
-import apiRouter from './routes/apiRoute'
-import authRouter from './routes/authRoute'
-import {error} from './type'
+import authRouter from './routes/authRoute';
+import { error } from './type';
+import cors from 'cors';
 
-import cors from 'cors'
-const app = express()
-const PORT:number = 3000
+const app = express();
+const PORT: number = 3000;
 
-app.use(cors({origin:'http://localhost:8080'}))
-app.use(express.json())
+app.use(cors({ origin: 'http://localhost:8080' }));
+app.use(express.json());
 
-app.use(authRouter);
+app.use('/auth',authRouter);
 
-app.use('/api', apiRouter)
 
 app.use((err:error, req: Request ,res:Response,next: NextFunction)=> {
   const error: error = {
