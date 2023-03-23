@@ -1,0 +1,230 @@
+// misc color variables
+$background-color: #d2c0a1;
+
+// Light mode color variables
+$primary-light: green;
+$secondary-light: 50% green;
+$tertiary-light: 25% green;
+$primary-light-text: black;
+$secondary-light-text: rgb(92, 92, 92);
+$tertiary-light-text: darkgray;
+
+// Dark mode color variables
+$primary-dark: blue;
+$secondary-dark: 50% blue;
+$tertiary-dark: 25% blue;
+$primary-dark-text: white;
+$secondary-dark-text: grey;
+$tertiary-dark-text: lightgray;
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+/*
+45-125: Login Page Styling
+45-120: Main Page Styling
+45-120: Login Page Styling
+*/
+
+/* Login Page */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#image-container {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+#login-sidebar-image {
+  // display: block;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  // top: 50%;
+  // transform: translateY(5%);
+}
+
+#login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 90%;
+  width: 50%;
+}
+
+#login-group {
+  // border:rgb(92, 92, 92) 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  font-family: 'Press Start 2P';
+  // align-items: center;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-input {
+  width: 50%;
+  font-family: 'Press Start 2P';
+}
+
+#login-button {
+  width: 51%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: 'Press Start 2P';
+}
+
+#sign-up-link {
+  font-size: x-small;
+}
+
+/* Main Page */
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  border-radius: 5px;
+  background-color: $background-color;
+  color: green;
+}
+
+.home-faux-screen-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 97%;
+  width: 97%;
+  background-color: #918267;
+  border: 5px solid black;
+  border-radius: 5px;
+}
+
+.home-faux-screen-container {
+  background-color: black;
+  border: 5px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 97%;
+  width: 97%;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: 'Press Start 2P';
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 20%;
+  height: 95%;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid green;
+  height: 50%;
+}
+
+.profile-photo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 20vw;
+  overflow: hidden;
+}
+
+.profile-photo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: fill;
+  }
+
+.feed-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: scroll;
+  font-family: 'Press Start 2P';
+  border: 2px solid green;
+  border-radius: 5px;
+  width: 77%;
+  height: 95%;
+  margin: 0 0 0 2%;
+}
+
+/* Card Styling */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 20%;
+  height: 45%;
+  border: 2px solid green;
+}
+
+.card-body {
+  text-align: left;
+}
